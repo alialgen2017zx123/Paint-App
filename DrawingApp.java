@@ -128,6 +128,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	JButton starButton = new JButton("☆");
+         starButton.setFont(new Font("", Font.BOLD, 35));
+         starButton.setPreferredSize(buttonSize);
+         starButton.setBackground(Color.white);
 		
 		
 		
@@ -207,6 +211,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	        starButton.addActionListener(e -> setSelectedShape("star"));	
 		
 		
 		
@@ -262,29 +267,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	controlPanel.add(starButton);	
 		
 		
 		
