@@ -73,7 +73,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+ //Background White
+        drawingPanel.setBackground(Color.white);		
 		
 		
 		
