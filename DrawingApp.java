@@ -58,10 +58,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
+
+
+               for (ShapeInfo shape : shapesList) {
+                    g2d.setColor(shape.getColor());		
 		
 		
 		
