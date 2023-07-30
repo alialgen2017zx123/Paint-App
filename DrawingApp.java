@@ -264,7 +264,7 @@ rectangleButton.addActionListener(e -> setSelectedShape("rectangle"));
 		
 		
 		
-		
+controlPanel.add(rectangleButton);		
 		
 		
 		
@@ -305,9 +305,18 @@ controlPanel.add(saveButton);
 		
 		
 		
-controlPanel.add(rectangleButton);		
 		
 		
+ // Select Shape
+        switch (selectedShape) {
+            case "rectangle":
+                return new Rectangle(
+                        Math.min(startX, endX),
+                        Math.min(startY, endY),
+                        width,
+                        height
+
+                );		
 		
 		
 		
