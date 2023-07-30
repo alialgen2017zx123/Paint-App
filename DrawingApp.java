@@ -376,6 +376,13 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	     private Shape shape;	
+		
+		
+		
+		
+		
+          this.shape = shape;		
 		
 		
 		
@@ -386,15 +393,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		public Shape getShape() {
+            return shape;   }
 		
 		
 		
