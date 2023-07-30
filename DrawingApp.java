@@ -4,7 +4,7 @@
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import java.awt.geom.Ellipse2D;
 
 
 
@@ -317,13 +317,13 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+	 case "oval":
+                return new Ellipse2D.Double(
+                        Math.min(startX, endX),
+                        Math.min(startY, endY),
+                        width,
+                        height
+                );
 		
 		
 		
