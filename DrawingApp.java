@@ -36,7 +36,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+	strokeSize = 1;
 		
 		
 		
