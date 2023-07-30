@@ -32,10 +32,10 @@ public class DrawingApp extends JFrame {
 
 		
 		
-		
-		
-		
-		
+		filledCheckBox = new JCheckBox("Fill Shape");
+        filledCheckBox.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        filledCheckBox.setBackground(Color.decode("#80C583"));
+        filledCheckBox.setBorderPainted(true);
 		
 		
 		//Frame settings
