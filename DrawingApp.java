@@ -288,10 +288,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
+	private void setFilledShape(boolean fill) {
+        filledShape = fill;
+        filledCheckBox.setSelected(fill);
+       }
 		
 		
 		
