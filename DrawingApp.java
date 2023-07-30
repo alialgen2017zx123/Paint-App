@@ -64,7 +64,13 @@ public class DrawingApp extends JFrame {
 		
 			if (shape.isFilled()) {
                         g2d.fill(shape.getShape());	
-		
+			} else {
+                        g2d.draw(shape.getShape());
+                        
+                    }
+                }
+            }
+        };
 		
 		
 		
