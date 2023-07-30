@@ -280,17 +280,13 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+       Container contentPane = getContentPane();
+        contentPane.setLayout(new BorderLayout());
+        contentPane.add(controlPanel, BorderLayout.NORTH);
+        contentPane.add(drawingPanel, BorderLayout.CENTER);
+
+        pack();
+    }				
 		
 		
 		
