@@ -118,6 +118,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	JButton ovalButton = new JButton("○");
+        ovalButton.setFont(new Font("Arial", Font.BOLD, 35));
+        ovalButton.setPreferredSize(buttonSize);
+        ovalButton.setBackground(Color.white);
 		
 		
 		
@@ -205,6 +209,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	ovalButton.addActionListener(e -> setSelectedShape("oval"));	
 		
 		
 		
@@ -260,12 +265,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
+	controlPanel.add(ovalButton); 	
 		
 		
 		
