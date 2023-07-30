@@ -58,7 +58,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+	g2d.setStroke(new BasicStroke(strokeSize));
 		
 		
 		
