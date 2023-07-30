@@ -1,9 +1,9 @@
 
 
 
-
-
-
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -77,12 +77,12 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
+	drawingPanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                startX = e.getX();
+                startY = e.getY();
+            }
 		
 		
 		
