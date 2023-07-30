@@ -1,5 +1,5 @@
 import javax.swing.*;
-
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -14,10 +14,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-
-
-
-
 public class DrawingApp extends JFrame {
 	private String selectedShape;
     private Color selectedColor;
@@ -27,6 +23,10 @@ public class DrawingApp extends JFrame {
     private ActionListener undoAction;
     private JCheckBox filledCheckBox;
     private int strokeSize;
+
+
+	public DrawingApp() {
+
 	
 	
 	
@@ -37,15 +37,11 @@ public class DrawingApp extends JFrame {
 	
 	
 	
-	 public DrawingApp() {
+	 
 		
 
 
 
-		
-		
-		
-		
 		
 		
  JPanel drawingPanel = new JPanel() {
@@ -77,17 +73,18 @@ public class DrawingApp extends JFrame {
 		
 		
 		
- //Background White
+//Background White
         drawingPanel.setBackground(Color.white);		
 		
 		
 		
+ 		
 		
 		
 		
 		
 		
- @Override
+@Override
             public void mouseReleased(MouseEvent e) {
                 endX = e.getX();
                 endY = e.getY();
@@ -102,7 +99,10 @@ public class DrawingApp extends JFrame {
 
 
             }
-        });		
+        });				
+		
+		
+ 
 		
 		
 		
@@ -113,11 +113,11 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
- JButton rectangleButton = new JButton("▭");
+JButton rectangleButton = new JButton("▭");
         rectangleButton.setFont(new Font("Arial", Font.BOLD, 28));
         rectangleButton.setPreferredSize(buttonSize);
-        rectangleButton.setBackground(Color.white);		
+        rectangleButton.setBackground(Color.white);			
+ 	
 		
 		
 		
@@ -161,21 +161,14 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-     JButton saveButton = new JButton("save ⤓");
+	JButton saveButton = new JButton("save ⤓");
         Dimension buttonSize2 = new Dimension(115, 35);
         saveButton.setPreferredSize(buttonSize2);
         saveButton.setForeground(Color.white);
         saveButton.setBackground(Color.decode("#FC8E01"));
         saveButton.setFont(new Font("", Font.BOLD, 25));
-        saveButton.setBorderPainted(true);		
-		
-		
-		
-		
-		
-		
-		
+        saveButton.setBorderPainted(true);	
+     		
 		
 		
 		
@@ -225,6 +218,12 @@ rectangleButton.addActionListener(e -> setSelectedShape("rectangle"));
 		
 		
 		
+		
+		
+		
+		
+		
+		
 // Save Feature Created by Abdullah Ahmed Abdel-Naim & Ali Mohamed Ali Abdel-Majeed
         saveButton.addActionListener(e -> {
             try {
@@ -264,8 +263,8 @@ rectangleButton.addActionListener(e -> setSelectedShape("rectangle"));
 		
 		
 		
-controlPanel.add(rectangleButton);		
 		
+controlPanel.add(rectangleButton);		
 		
 		
 		
@@ -307,6 +306,7 @@ controlPanel.add(saveButton);
 		
 		
 		
+ 
  // Select Shape
         switch (selectedShape) {
             case "rectangle":
@@ -399,8 +399,12 @@ controlPanel.add(saveButton);
 		
 		
 		
+public boolean isFilled() {
+            return filled;  }		
 		
+		}		
 		
+	}		
 		
 		
 		
@@ -483,9 +487,5 @@ controlPanel.add(saveButton);
 		
 		
 		
-		
-		
-		
-	 }
 	 
-}
+	 
