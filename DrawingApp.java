@@ -293,13 +293,19 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	   private void setSelectedShape(String shape) {
+        selectedShape = shape;
+        
+    }	
 		
 		
 		
 		
 		
 		
-		
+  private Shape createShape(int startX, int startY, int endX, int endY, int strokeSize) {
+        int width = Math.abs(endX - startX);
+        int height = Math.abs(endY - startY);		
 		
 		
 		
