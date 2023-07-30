@@ -161,7 +161,13 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+     JButton saveButton = new JButton("save ⤓");
+        Dimension buttonSize2 = new Dimension(115, 35);
+        saveButton.setPreferredSize(buttonSize2);
+        saveButton.setForeground(Color.white);
+        saveButton.setBackground(Color.decode("#FC8E01"));
+        saveButton.setFont(new Font("", Font.BOLD, 25));
+        saveButton.setBorderPainted(true);		
 		
 		
 		
