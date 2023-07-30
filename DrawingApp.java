@@ -6,8 +6,8 @@
 
 
 
-
-
+import java.awt.geom.Path2D;
+import java.awt.geom.Point2D;
 
 
 
@@ -338,27 +338,27 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		case "star":
+            	
+                Point2D.Double center = new Point2D.Double((startX + endX) / 2, (startY + endY) / 2);
+                double radius = Math.min(width, height) / 2;
+                double innerRadius = radius / 2;
+                int numPoints = 5;
+                
+                Path2D star = new Path2D.Double();
+                for (int i = 0; i < numPoints * 2; i++) {
+                    double angle = i * Math.PI / numPoints;
+                    double x = center.getX() + (i % 2 == 0 ? radius : innerRadius) * Math.cos(angle);
+                    double y = center.getY() + (i % 2 == 0 ? radius : innerRadius) * Math.sin(angle);
+                    
+                    if (i == 0) {
+                        star.moveTo(x, y);
+                    } else {
+                        star.lineTo(x, y);
+                    }
+                }
+                star.closePath();
+                return star;
 		
 		
 		
