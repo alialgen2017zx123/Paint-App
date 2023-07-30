@@ -1,7 +1,9 @@
 import javax.swing.*;
 
 import java.awt.*;
-
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 
@@ -84,7 +86,22 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+ @Override
+            public void mouseReleased(MouseEvent e) {
+                endX = e.getX();
+                endY = e.getY();
+                Shape shape;
+
+                shape = createShape(startX, startY, endX, endY,strokeSize);
+
+                shapesList.add(new ShapeInfo(shape, selectedColor, filledShape,strokeSize));
+
+
+                drawingPanel.repaint();
+
+
+            }
+        });		
 		
 		
 		
