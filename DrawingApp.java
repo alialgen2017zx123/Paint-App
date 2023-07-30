@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
+import java.awt.geom.Line2D;
 
 
 
@@ -113,7 +113,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+ JButton rectangleButton = new JButton("▭");
+        rectangleButton.setFont(new Font("Arial", Font.BOLD, 28));
+        rectangleButton.setPreferredSize(buttonSize);
+        rectangleButton.setBackground(Color.white);		
 		
 		
 		
