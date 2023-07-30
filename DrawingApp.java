@@ -1,11 +1,11 @@
 
 
+import java.awt.*;
 
 
 
 
-
-
+import java.awt.geom.Line2D;
 
 
 
@@ -103,6 +103,15 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+        //Create  All	Button
+        Font font = new Font( "Serif", Font. BOLD, 20);
+        Dimension buttonSize = new Dimension(64, 40);
+        
+        JButton lineButton = new JButton("╱");
+        lineButton.setFont(new Font("Arial", Font.BOLD, 10));
+        lineButton.setFont(font);
+        lineButton.setPreferredSize(buttonSize);
+        lineButton.setBackground(Color.white);		
 		
 		
 		
@@ -197,6 +206,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+       //Shapes ButtonAction
+        lineButton.addActionListener(e -> setSelectedShape("line"));		
 		
 		
 		
@@ -250,20 +261,9 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+       // add Button in Panel
+        JPanel controlPanel = new JPanel();
+        controlPanel.add(lineButton);		
 		
 		
 		
