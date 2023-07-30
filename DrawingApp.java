@@ -396,8 +396,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
+	public Color getColor() {
+            return color;     }
 		
 		
 		
