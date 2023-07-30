@@ -38,7 +38,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+		//Frame settings
+        setTitle("Drawing App");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setPreferredSize(new Dimension(1400, 770));		
 		
 		
 		
