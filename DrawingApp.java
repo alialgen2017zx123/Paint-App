@@ -208,6 +208,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+rectangleButton.addActionListener(e -> setSelectedShape("rectangle"));		
 		
 		
 		
@@ -263,8 +264,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
+controlPanel.add(rectangleButton);		
 		
 		
 		
