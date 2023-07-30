@@ -15,6 +15,14 @@
 
 
 public class DrawingApp extends JFrame {
+	private String selectedShape;
+    private Color selectedColor;
+    private boolean filledShape;
+    private int startX, startY, endX, endY;
+    private static ArrayList<ShapeInfo> shapesList;
+    private ActionListener undoAction;
+    private JCheckBox filledCheckBox;
+    private int strokeSize;
 	
 	
 	
@@ -36,7 +44,11 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+ JPanel drawingPanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;		
 		
 		
 		
