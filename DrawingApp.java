@@ -360,6 +360,14 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+           default:
+                return new Line2D.Double(startX, startY, endX, endY);
+        }
+    }
+
+						
+
+	
 		
 		
 		
@@ -393,17 +401,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	 }
 	 
 }
