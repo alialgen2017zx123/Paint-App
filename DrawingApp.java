@@ -302,6 +302,31 @@ public class DrawingApp extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error saving image: " + ex.getMessage());
             }
         });  //end Save
+		
+		// open file Action which extension is png
+
+        openButton.addActionListener(e -> {
+            if (e.getSource() == openButton) {
+                // Choose a file to open
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(this);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    String fileName = file.getName();
+
+                    // Check if the file is a PNG file
+                    if (fileName.endsWith(".png")) {
+                        // Open the file using the Desktop class
+                        Desktop desktop = Desktop.getDesktop();
+                        try {
+                            desktop.open(file);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Please choose a PNG file.");
+                    }
+        }}}); //open file.
         
         
         // add Button in Panel
