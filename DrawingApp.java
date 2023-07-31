@@ -387,11 +387,11 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
+	public void setStrokeSize(int strokeSize) {
+			
+        	 }
+        public int getStrokeSize ( ) {
+        	return strokeSize;  }
 		
 		
 		
