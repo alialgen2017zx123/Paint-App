@@ -123,6 +123,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	    JButton triangleButton = new JButton("∆");
+        triangleButton.setFont(new Font("Arial", Font.BOLD, 35));
+        triangleButton.setPreferredSize(buttonSize);
+        triangleButton.setBackground(Color.white);	
 		
 		
 		
@@ -206,6 +210,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+     triangleButton.addActionListener(e -> setSelectedShape("triangle"));		
 		
 		
 		
@@ -261,6 +266,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	    controlPanel.add(triangleButton);	
 		
 		
 		
@@ -318,10 +324,19 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
+	case "triangle":
+            	
+                Point2D.Double point1 = new Point2D.Double(startX, endY);
+                Point2D.Double point2 = new Point2D.Double((startX + endX) / 2, startY);
+                Point2D.Double point3 = new Point2D.Double(endX, endY);
+                
+                Path2D triangle = new Path2D.Double();
+                triangle.moveTo(point1.getX(), point1.getY());
+                triangle.lineTo(point2.getX(), point2.getY());
+                triangle.lineTo(point3.getX(), point3.getY());
+                triangle.closePath();
+                
+                return triangle;	
 		
 		
 		
