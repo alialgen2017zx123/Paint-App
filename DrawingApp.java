@@ -143,6 +143,20 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+ JButton colorGreenButton = new JButton("Green");
+        colorGreenButton.setBackground(Color.green);
+        colorGreenButton.setForeground(Color.black);
+        colorGreenButton.setFont(font);
+        
+        JButton colorBlackButton = new JButton("Black");
+        colorBlackButton.setBackground(Color.black);
+        colorBlackButton.setForeground(Color.white);
+        colorBlackButton.setFont(font);
+        
+        JButton colorPinkButton = new JButton("Pink");
+        colorPinkButton.setBackground(Color.pink);
+        colorPinkButton.setForeground(Color.black);
+        colorPinkButton.setFont(font); 		
 		
 		
 		
@@ -202,6 +216,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+		colorGreenButton.addActionListener(e -> setSelectedColor(Color.GREEN));
+        colorBlackButton.addActionListener(e -> setSelectedColor(Color.black));
+        colorPinkButton.addActionListener(e -> setSelectedColor(Color.pink));
+       		
 		
 		
 		
@@ -252,6 +270,10 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+		controlPanel.add(colorBlackButton);
+        controlPanel.add(colorGreenButton);
+        controlPanel.add(colorPinkButton);
+       		
 		
 		
 		
@@ -377,31 +399,9 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
+
+	
 	 }
 	 
 }
