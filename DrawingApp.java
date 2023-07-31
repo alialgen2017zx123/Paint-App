@@ -18,6 +18,7 @@ public class DrawingApp extends JFrame {
 	private String selectedShape;
     private Color selectedColor;
     private boolean filledShape;
+	private boolean eraserMode;
     private int startX, startY, endX, endY;
     private static ArrayList<ShapeInfo> shapesList;
     private int strokeSize;
@@ -30,6 +31,7 @@ public class DrawingApp extends JFrame {
     	//default values
         selectedShape = "line";
         selectedColor = Color.BLACK;
+		eraserMode=false;
         filledShape = false;
         shapesList = new ArrayList<>();
         filledCheckBox = new JCheckBox("Fill Shape");
@@ -88,10 +90,36 @@ public class DrawingApp extends JFrame {
             public void mouseReleased(MouseEvent e) {
                 endX = e.getX();
                 endY = e.getY();
-                Shape shape;
-               
-                    shape = createShape(startX, startY, endX, endY,strokeSize);
-                
+                Shape shape
+				
+				 // if eraser mode is true
+                if (eraserMode) {
+                    // Create a small rectangle shape as an eraser
+                    int eraserSize = 60;
+
+                    //to be an eraser use white color
+
+                    setSelectedColor(Color.WHITE);
+
+
+
+                    shape = new Rectangle(
+                            e.getX() - eraserSize / 2,
+                            e.getY() - eraserSize / 2,
+                            eraserSize,
+                            eraserSize
+                    );
+                    //to fill shape with white color
+                    setFilledShape(true);
+
+
+                } else {
+
+                    shape = createShape(startX, startY, endX, endY, strokeSize);
+                }
+
+				// push new changes to our constructor Shapeinfo
+				
                 shapesList.add(new ShapeInfo(shape, selectedColor, filledShape,strokeSize));
 
         	    
@@ -226,6 +254,9 @@ public class DrawingApp extends JFrame {
         
         //Filled CheckBoxAction
         filledCheckBox.addActionListener(e -> setFilledShape(filledCheckBox.isSelected()));
+		
+		//erase button Action
+        eraseButton.addActionListener(e -> setEraserMode(true));
         
         
         // Save Feature Created by Abdullah Ahmed Abdel-Naim & Ali Mohamed Ali Abdel-Majeed
@@ -296,6 +327,10 @@ public class DrawingApp extends JFrame {
     private void setFilledShape(boolean fill) {
         filledShape = fill;
         filledCheckBox.setSelected(fill);
+    }
+	
+	private void setEraserMode(boolean enable) {
+        eraserMode = enable;
     }
     
     private void setSelectedShape(String shape) {
