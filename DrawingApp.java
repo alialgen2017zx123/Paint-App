@@ -365,27 +365,27 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+   // Main Method 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            DrawingApp app = new DrawingApp();
+            app.setVisible(true);
+        });
+        
+    }	
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	 // Class of shapes and their properties
+    public static class ShapeInfo {
+        private Shape shape;
+        private Color color;
+        private boolean filled;
+		private int strokeSize;
+
+        public ShapeInfo(Shape shape, Color color, boolean filled,int strokesize) {
+            this.shape = shape;
+            this.color = color;
+            this.filled = filled;
+            this.strokeSize = strokesize;     }
 		
 		
 		
