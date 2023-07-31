@@ -1,19 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public class DrawingApp extends JFrame {
 	
 	
@@ -148,15 +133,15 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	JButton colorRedButton = new JButton("Red");
+        colorRedButton.setBackground(Color.red);
+        colorRedButton.setForeground(Color.black);
+        colorRedButton.setFont(font);
+        
+        JButton colorBlueButton = new JButton("Blue");
+        colorBlueButton.setBackground(Color.blue);
+        colorBlueButton.setForeground(Color.black);
+        colorBlueButton.setFont(font);
 		
 		
 		
@@ -229,8 +214,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
+		colorRedButton.addActionListener(e -> setSelectedColor(Color.RED));
+        colorBlueButton.addActionListener(e -> setSelectedColor(Color.BLUE));
 		
 		
 		
@@ -283,6 +268,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+		controlPanel.add(colorRedButton);
+        controlPanel.add(colorBlueButton);
 		
 		
 		
@@ -312,11 +299,9 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
+	private void setSelectedColor(Color color) {
+        selectedColor = color;
+    }
 		
 		
 		
