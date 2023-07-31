@@ -157,17 +157,21 @@ public class DrawingApp extends JFrame {
         colorPinkButton.setBackground(Color.pink);
         colorPinkButton.setForeground(Color.black);
         colorPinkButton.setFont(font); 
+		
+		JButton eraseButton = new JButton("Erase");
+        eraseButton.setBackground(Color.CYAN);
+        eraseButton.setFont(font);
         
-  JButton undoButton = new JButton("↩️ Undo");
-  undoButton.setFont(new Font("", Font.BOLD, 16));
+		JButton undoButton = new JButton("↩️ Undo");
+		undoButton.setFont(new Font("", Font.BOLD, 16));
   
-  JButton saveButton = new JButton("save ⤓");
-  Dimension buttonSize2 = new Dimension(115, 35);
-  saveButton.setPreferredSize(buttonSize2);
-  saveButton.setForeground(Color.white);
-  saveButton.setBackground(Color.decode("#FC8E01"));
- saveButton.setFont(new Font("", Font.BOLD, 25));
- saveButton.setBorderPainted(true);
+		JButton saveButton = new JButton("save ⤓");
+		Dimension buttonSize2 = new Dimension(115, 35);
+		saveButton.setPreferredSize(buttonSize2);
+		saveButton.setForeground(Color.white);
+		saveButton.setBackground(Color.decode("#FC8E01"));
+		saveButton.setFont(new Font("", Font.BOLD, 25));
+		saveButton.setBorderPainted(true);
   
   
 //Create a combobox with four options for the stroke size
@@ -273,6 +277,7 @@ public class DrawingApp extends JFrame {
         controlPanel.add(colorBlackButton);
         controlPanel.add(colorGreenButton);
         controlPanel.add(colorPinkButton);
+		controlPanel.add(eraseButton);
         controlPanel.add(undoButton);
         controlPanel.add(filledCheckBox);
 		controlPanel.add(strokeComboBox);
