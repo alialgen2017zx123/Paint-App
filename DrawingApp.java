@@ -21,7 +21,7 @@ public class DrawingApp extends JFrame {
 	
 	
 	
-	
+    private ActionListener undoAction;
 	
 	
 	
@@ -158,6 +158,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	JButton undoButton = new JButton("↩️ Undo");
+  undoButton.setFont(new Font("", Font.BOLD, 16));
 		
 		
 		
@@ -196,13 +198,12 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
+ // Undo & Redo Button and  Action Undo & Redo 
+        undoAction = e -> {
+            ShapeInfo shapeInfo = shapesList.remove(shapesList.size() - 1);
+            drawingPanel.repaint();
+        };
+        undoButton.addActionListener(undoAction);
 		
 		
 		
@@ -272,7 +273,7 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
+controlPanel.add(undoButton);		
 		
 		
 		
