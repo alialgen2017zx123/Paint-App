@@ -200,6 +200,14 @@ public class DrawingApp extends JFrame {
 		saveButton.setBackground(Color.decode("#FC8E01"));
 		saveButton.setFont(new Font("", Font.BOLD, 25));
 		saveButton.setBorderPainted(true);
+		
+		JButton openButton = new JButton("Open↑");
+        Dimension open = new Dimension(115, 35);
+        openButton.setPreferredSize(open);
+        openButton.setForeground(Color.WHITE);
+        openButton.setBackground(Color.decode("#FC8E01"));
+        openButton.setFont(new Font("", Font.BOLD, 25));
+        openButton.setBorderPainted(true);
   
   
 //Create a combobox with four options for the stroke size
@@ -313,6 +321,7 @@ public class DrawingApp extends JFrame {
         controlPanel.add(filledCheckBox);
 		controlPanel.add(strokeComboBox);
 		controlPanel.add(strokeLabel);
+		controlPanel.add(openButton);
 		controlPanel.add(saveButton);
 		
 		
