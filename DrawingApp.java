@@ -22,7 +22,7 @@ public class DrawingApp extends JFrame {
 	
 	
     private ActionListener undoAction;
-	
+	private JCheckBox filledCheckBox;
 	
 	
 	 public DrawingApp() {
@@ -170,32 +170,32 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	//Create a combobox with four options for the stroke size
+ JComboBox<Integer> strokeComboBox = new JComboBox<>();
+ strokeComboBox.addItem(1);
+ strokeComboBox.addItem(2);
+ strokeComboBox.addItem(3);
+ strokeComboBox.addItem(6);
+ strokeComboBox.addItem(8);
+ strokeComboBox.addItem(10);
+ strokeComboBox.addItem(12);
+ strokeComboBox.addItem(14);
+ strokeComboBox.addItem(16);
+ strokeComboBox.addItem(20);
+ strokeComboBox.setFont(font);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	JLabel strokeLabel = new JLabel("Font Size");
+ strokeLabel.setHorizontalAlignment(JLabel.CENTER);
+ strokeLabel.setVerticalAlignment(JLabel.TOP);
+ strokeLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
+
+
+ // Add an action listener to the combobox that updates the stroke size variable
+ strokeComboBox.addActionListener(e -> {
+	   int selected = (int) strokeComboBox.getSelectedItem();
+	    strokeSize = selected;
+	   
+	});  
 		
 		
  // Undo & Redo Button and  Action Undo & Redo 
@@ -220,6 +220,8 @@ public class DrawingApp extends JFrame {
 		
 		
 		
+	//Filled CheckBoxAction
+        filledCheckBox.addActionListener(e -> setFilledShape(filledCheckBox.isSelected()));
 		
 		
 		
@@ -266,17 +268,15 @@ public class DrawingApp extends JFrame {
 		
 		
 		
-		
-		
-	controlPanel.add(starButton);	
+		controlPanel.add(starButton);	
 		
 		
 		
 		
-controlPanel.add(undoButton);		
-		
-		
-		
+		controlPanel.add(undoButton);		
+		controlPanel.add(filledCheckBox);
+		controlPanel.add(strokeComboBox);
+		controlPanel.add(strokeLabel);	
 		
 		
 		
