@@ -1,5 +1,21 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 public class DrawingApp extends JFrame {
+	
 	
 	
 	
@@ -322,22 +338,6 @@ public class DrawingApp extends JFrame {
                 triangle.closePath();
                 
                 return triangle;	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		
