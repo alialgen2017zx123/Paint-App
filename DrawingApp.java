@@ -202,7 +202,7 @@ public class DrawingApp extends JFrame {
 		saveButton.setPreferredSize(buttonSize2);
 		saveButton.setForeground(Color.white);
 		saveButton.setBackground(Color.decode("#FC8E01"));
-		saveButton.setFont(new Font("", Font.BOLD, 15));
+		saveButton.setFont(new Font("", Font.BOLD, 20));
 		saveButton.setBorderPainted(true);
 		
 		JButton openButton = new JButton("Open↑");
@@ -210,7 +210,7 @@ public class DrawingApp extends JFrame {
         openButton.setPreferredSize(open);
         openButton.setForeground(Color.black);
         openButton.setBackground(Color.decode("#33fbea"));
-        openButton.setFont(new Font("", Font.BOLD, 15));
+        openButton.setFont(new Font("", Font.BOLD, 20));
         openButton.setBorderPainted(true);
         
   
