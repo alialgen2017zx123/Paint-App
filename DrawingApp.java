@@ -31,7 +31,7 @@ public class DrawingApp extends JFrame {
     	//default values
         selectedShape = "line";
         selectedColor = Color.BLACK;
-		eraserMode=false;
+	    	eraserMode=false;
         filledShape = false;
         shapesList = new ArrayList<>();
         filledCheckBox = new JCheckBox("Fill Shape");
@@ -121,6 +121,10 @@ public class DrawingApp extends JFrame {
 				// push new changes to our constructor Shapeinfo
 				
                 shapesList.add(new ShapeInfo(shape, selectedColor, filledShape,strokeSize));
+               
+                    shape = createShape(startX, startY, endX, endY,strokeSize);
+                
+                shapesList.add(new ShapeInfo(shape, selectedColor, filledShape,strokeSize));
 
         	    
                 drawingPanel.repaint();
@@ -208,6 +212,17 @@ public class DrawingApp extends JFrame {
         openButton.setBackground(Color.decode("#FC8E01"));
         openButton.setFont(new Font("", Font.BOLD, 25));
         openButton.setBorderPainted(true);
+        
+  JButton undoButton = new JButton("↩️ Undo");
+  undoButton.setFont(new Font("", Font.BOLD, 16));
+  
+  JButton saveButton = new JButton("save ⤓");
+  Dimension buttonSize2 = new Dimension(115, 35);
+  saveButton.setPreferredSize(buttonSize2);
+  saveButton.setForeground(Color.white);
+  saveButton.setBackground(Color.decode("#FC8E01"));
+ saveButton.setFont(new Font("", Font.BOLD, 25));
+ saveButton.setBorderPainted(true);
   
   
 //Create a combobox with four options for the stroke size
@@ -225,6 +240,7 @@ public class DrawingApp extends JFrame {
  strokeComboBox.setFont(font);
 
  JLabel strokeLabel = new JLabel();
+ JLabel strokeLabel = new JLabel("Font Size");
  strokeLabel.setHorizontalAlignment(JLabel.CENTER);
  strokeLabel.setVerticalAlignment(JLabel.TOP);
  strokeLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
@@ -263,7 +279,7 @@ public class DrawingApp extends JFrame {
         //Filled CheckBoxAction
         filledCheckBox.addActionListener(e -> setFilledShape(filledCheckBox.isSelected()));
 		
-		//erase button Action
+		    //erase button Action
         eraseButton.addActionListener(e -> setEraserMode(true));
         
         
@@ -328,7 +344,6 @@ public class DrawingApp extends JFrame {
                     }
         }}}); //open file.
         
-        
         // add Button in Panel
         JPanel controlPanel = new JPanel();
         controlPanel.add(lineButton);
@@ -341,13 +356,13 @@ public class DrawingApp extends JFrame {
         controlPanel.add(colorBlackButton);
         controlPanel.add(colorGreenButton);
         controlPanel.add(colorPinkButton);
-		controlPanel.add(eraseButton);
+		    controlPanel.add(eraseButton);
         controlPanel.add(undoButton);
         controlPanel.add(filledCheckBox);
-		controlPanel.add(strokeComboBox);
-		controlPanel.add(strokeLabel);
-		controlPanel.add(openButton);
-		controlPanel.add(saveButton);
+		    controlPanel.add(strokeComboBox);
+		    controlPanel.add(strokeLabel);
+		    controlPanel.add(openButton);
+		    controlPanel.add(saveButton);
 		
 		
         Container contentPane = getContentPane();
@@ -362,10 +377,12 @@ public class DrawingApp extends JFrame {
         filledShape = fill;
         filledCheckBox.setSelected(fill);
     }
+
 	
 	private void setEraserMode(boolean enable) {
         eraserMode = enable;
     }
+
     
     private void setSelectedShape(String shape) {
         selectedShape = shape;
