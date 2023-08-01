@@ -90,7 +90,7 @@ public class DrawingApp extends JFrame {
             public void mouseReleased(MouseEvent e) {
                 endX = e.getX();
                 endY = e.getY();
-                Shape shape
+                Shape shape;
 				
 				 // if eraser mode is true
                 if (eraserMode) {
@@ -224,7 +224,7 @@ public class DrawingApp extends JFrame {
  strokeComboBox.addItem(20);
  strokeComboBox.setFont(font);
 
- JLabel strokeLabel = new JLabel("Font Size");
+ JLabel strokeLabel = new JLabel();
  strokeLabel.setHorizontalAlignment(JLabel.CENTER);
  strokeLabel.setVerticalAlignment(JLabel.TOP);
  strokeLabel.setFont(new Font("Times New Roman", Font.BOLD, 18));
