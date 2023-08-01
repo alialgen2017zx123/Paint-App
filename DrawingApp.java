@@ -18,6 +18,7 @@ public class DrawingApp extends JFrame {
 	private String selectedShape;
     private Color selectedColor;
     private boolean filledShape;
+	private boolean eraserMode;
     private int startX, startY, endX, endY;
     private static ArrayList<ShapeInfo> shapesList;
     private int strokeSize;
@@ -30,6 +31,7 @@ public class DrawingApp extends JFrame {
     	//default values
         selectedShape = "line";
         selectedColor = Color.BLACK;
+	    	eraserMode=false;
         filledShape = false;
         shapesList = new ArrayList<>();
         filledCheckBox = new JCheckBox("Fill Shape");
@@ -89,6 +91,36 @@ public class DrawingApp extends JFrame {
                 endX = e.getX();
                 endY = e.getY();
                 Shape shape;
+				
+				 // if eraser mode is true
+                if (eraserMode) {
+                    // Create a small rectangle shape as an eraser
+                    int eraserSize = 60;
+
+                    //to be an eraser use white color
+
+                    setSelectedColor(Color.WHITE);
+
+
+
+                    shape = new Rectangle(
+                            e.getX() - eraserSize / 2,
+                            e.getY() - eraserSize / 2,
+                            eraserSize,
+                            eraserSize
+                    );
+                    //to fill shape with white color
+                    setFilledShape(true);
+
+
+                } else {
+
+                    shape = createShape(startX, startY, endX, endY, strokeSize);
+                }
+
+				// push new changes to our constructor Shapeinfo
+				
+                shapesList.add(new ShapeInfo(shape, selectedColor, filledShape,strokeSize));
                
                     shape = createShape(startX, startY, endX, endY,strokeSize);
                 
@@ -157,6 +189,29 @@ public class DrawingApp extends JFrame {
         colorPinkButton.setBackground(Color.pink);
         colorPinkButton.setForeground(Color.black);
         colorPinkButton.setFont(font); 
+		
+		JButton eraseButton = new JButton("Erase");
+        eraseButton.setBackground(Color.CYAN);
+        eraseButton.setFont(font);
+        
+		JButton undoButton = new JButton("↩️ Undo");
+		undoButton.setFont(new Font("", Font.BOLD, 16));
+  
+		JButton saveButton = new JButton("save ⤓");
+		Dimension buttonSize2 = new Dimension(115, 35);
+		saveButton.setPreferredSize(buttonSize2);
+		saveButton.setForeground(Color.white);
+		saveButton.setBackground(Color.decode("#FC8E01"));
+		saveButton.setFont(new Font("", Font.BOLD, 25));
+		saveButton.setBorderPainted(true);
+		
+		JButton openButton = new JButton("Open↑");
+        Dimension open = new Dimension(115, 35);
+        openButton.setPreferredSize(open);
+        openButton.setForeground(Color.WHITE);
+        openButton.setBackground(Color.decode("#FC8E01"));
+        openButton.setFont(new Font("", Font.BOLD, 25));
+        openButton.setBorderPainted(true);
         
   JButton undoButton = new JButton("↩️ Undo");
   undoButton.setFont(new Font("", Font.BOLD, 16));
@@ -184,6 +239,7 @@ public class DrawingApp extends JFrame {
  strokeComboBox.addItem(20);
  strokeComboBox.setFont(font);
 
+ JLabel strokeLabel = new JLabel();
  JLabel strokeLabel = new JLabel("Font Size");
  strokeLabel.setHorizontalAlignment(JLabel.CENTER);
  strokeLabel.setVerticalAlignment(JLabel.TOP);
@@ -222,6 +278,9 @@ public class DrawingApp extends JFrame {
         
         //Filled CheckBoxAction
         filledCheckBox.addActionListener(e -> setFilledShape(filledCheckBox.isSelected()));
+		
+		    //erase button Action
+        eraseButton.addActionListener(e -> setEraserMode(true));
         
         
         // Save Feature Created by Abdullah Ahmed Abdel-Naim & Ali Mohamed Ali Abdel-Majeed
@@ -259,7 +318,31 @@ public class DrawingApp extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error saving image: " + ex.getMessage());
             }
         });  //end Save
-        
+		
+		// open file Action which extension is png
+
+        openButton.addActionListener(e -> {
+            if (e.getSource() == openButton) {
+                // Choose a file to open
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(this);
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File file = fileChooser.getSelectedFile();
+                    String fileName = file.getName();
+
+                    // Check if the file is a PNG file
+                    if (fileName.endsWith(".png")) {
+                        // Open the file using the Desktop class
+                        Desktop desktop = Desktop.getDesktop();
+                        try {
+                            desktop.open(file);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Please choose a PNG file.");
+                    }
+        }}}); //open file.
         
         // add Button in Panel
         JPanel controlPanel = new JPanel();
@@ -273,11 +356,13 @@ public class DrawingApp extends JFrame {
         controlPanel.add(colorBlackButton);
         controlPanel.add(colorGreenButton);
         controlPanel.add(colorPinkButton);
+		    controlPanel.add(eraseButton);
         controlPanel.add(undoButton);
         controlPanel.add(filledCheckBox);
-		controlPanel.add(strokeComboBox);
-		controlPanel.add(strokeLabel);
-		controlPanel.add(saveButton);
+		    controlPanel.add(strokeComboBox);
+		    controlPanel.add(strokeLabel);
+		    controlPanel.add(openButton);
+		    controlPanel.add(saveButton);
 		
 		
         Container contentPane = getContentPane();
@@ -292,6 +377,12 @@ public class DrawingApp extends JFrame {
         filledShape = fill;
         filledCheckBox.setSelected(fill);
     }
+
+	
+	private void setEraserMode(boolean enable) {
+        eraserMode = enable;
+    }
+
     
     private void setSelectedShape(String shape) {
         selectedShape = shape;
