@@ -213,16 +213,6 @@ public class DrawingApp extends JFrame {
         openButton.setFont(new Font("", Font.BOLD, 25));
         openButton.setBorderPainted(true);
         
-  JButton undoButton = new JButton("↩️ Undo");
-  undoButton.setFont(new Font("", Font.BOLD, 16));
-  
-  JButton saveButton = new JButton("save ⤓");
-  Dimension buttonSize2 = new Dimension(115, 35);
-  saveButton.setPreferredSize(buttonSize2);
-  saveButton.setForeground(Color.white);
-  saveButton.setBackground(Color.decode("#FC8E01"));
- saveButton.setFont(new Font("", Font.BOLD, 25));
- saveButton.setBorderPainted(true);
   
   
 //Create a combobox with four options for the stroke size
@@ -239,7 +229,7 @@ public class DrawingApp extends JFrame {
  strokeComboBox.addItem(20);
  strokeComboBox.setFont(font);
 
- JLabel strokeLabel = new JLabel();
+ 
  JLabel strokeLabel = new JLabel("Font Size");
  strokeLabel.setHorizontalAlignment(JLabel.CENTER);
  strokeLabel.setVerticalAlignment(JLabel.TOP);
