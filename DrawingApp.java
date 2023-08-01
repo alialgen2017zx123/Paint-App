@@ -136,7 +136,7 @@ public class DrawingApp extends JFrame {
  
 
         //Create  All	Button
-        Font font = new Font( "Serif", Font. BOLD, 20);
+        Font font = new Font( "Serif", Font. BOLD, 15);
         Dimension buttonSize = new Dimension(64, 40);
         
         JButton lineButton = new JButton("╱");
@@ -198,19 +198,19 @@ public class DrawingApp extends JFrame {
 		undoButton.setFont(new Font("", Font.BOLD, 16));
   
 		JButton saveButton = new JButton("save ⤓");
-		Dimension buttonSize2 = new Dimension(115, 35);
+		Dimension buttonSize2 = new Dimension(100, 35);
 		saveButton.setPreferredSize(buttonSize2);
 		saveButton.setForeground(Color.white);
 		saveButton.setBackground(Color.decode("#FC8E01"));
-		saveButton.setFont(new Font("", Font.BOLD, 25));
+		saveButton.setFont(new Font("", Font.BOLD, 15));
 		saveButton.setBorderPainted(true);
 		
 		JButton openButton = new JButton("Open↑");
-        Dimension open = new Dimension(115, 35);
+        Dimension open = new Dimension(100, 35);
         openButton.setPreferredSize(open);
-        openButton.setForeground(Color.WHITE);
-        openButton.setBackground(Color.decode("#FC8E01"));
-        openButton.setFont(new Font("", Font.BOLD, 25));
+        openButton.setForeground(Color.black);
+        openButton.setBackground(Color.decode("#33fbea"));
+        openButton.setFont(new Font("", Font.BOLD, 15));
         openButton.setBorderPainted(true);
         
   
